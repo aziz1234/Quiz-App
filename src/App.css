@@ -7,3 +7,10 @@ main {
     height: 100vh;
     border-right: 2px solid black;
 }
+
+.score-card {
+    display: grid;
+    place-items: center;
+    place-content: center;
+    grid-template-columns: repeat(2, 1fr);
+}

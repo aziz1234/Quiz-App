@@ -12,16 +12,17 @@ import Typography from '@mui/material/Typography';
 
 import './resultSheet.css';
 
-const ResultSheet = ({resultSheet, score, resetQuiz}) => {
+// Show the Final Summary in Tabular format
+const ResultSheet = ({ resultSheet, score, resetQuiz }) => {
 
     const handleResetQuiz = () => {
         resetQuiz();
     }
-    
+
     return (
         <>
-            <Grid container spacing = {2}>
-                <Grid item xs ={12}>
+            <Grid container spacing={2}>
+                <Grid item xs={12}>
                     <Typography variant="h5" gutterBottom component="div">
                         Result Summary
                     </Typography>
@@ -30,15 +31,15 @@ const ResultSheet = ({resultSheet, score, resetQuiz}) => {
                     <TableContainer component={Paper}>
                         <Table>
                             <TableHead>
-                              <TableRow>
-                                <TableCell>Question</TableCell>
-                                <TableCell align="right">Correct Answer</TableCell>
-                                <TableCell align="right">Your Answer</TableCell>
-                              </TableRow>
+                                <TableRow>
+                                    <TableCell>Question</TableCell>
+                                    <TableCell align="right">Correct Answer</TableCell>
+                                    <TableCell align="right">Your Answer</TableCell>
+                                </TableRow>
                             </TableHead>
                             <TableBody>
-                                {resultSheet.map ((res, index) => (
-                                    <TableRow className = {res.correct ? 'correct' : 'incorrect'} key = {index}>
+                                {resultSheet.map((res, index) => (
+                                    <TableRow className={res.correct ? 'correct' : 'incorrect'} key={index}>
                                         <TableCell>
                                             {res.ques}
                                         </TableCell>
@@ -54,11 +55,11 @@ const ResultSheet = ({resultSheet, score, resetQuiz}) => {
                         </Table>
                     </TableContainer>
                 </Grid>
-                <Grid item xs = {12}>
-                    Score: {score}
+                <Grid item xs={12}>
+                    Score: {`${score}/${resultSheet.length}`}
                 </Grid>
-                <Grid item xs = {12}>
-                    <Button variant="contained" onClick = {handleResetQuiz}>Reset</Button>
+                <Grid item xs={12}>
+                    <Button variant="contained" onClick={handleResetQuiz}>Reset</Button>
                 </Grid>
             </Grid>
         </>
