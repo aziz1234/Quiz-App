@@ -32,6 +32,7 @@ const ResultSheet = ({ resultSheet, score, resetQuiz }) => {
                         <Table>
                             <TableHead>
                                 <TableRow>
+                                    <TableCell>Sr No</TableCell>
                                     <TableCell>Question</TableCell>
                                     <TableCell align="right">Correct Answer</TableCell>
                                     <TableCell align="right">Your Answer</TableCell>
@@ -40,6 +41,9 @@ const ResultSheet = ({ resultSheet, score, resetQuiz }) => {
                             <TableBody>
                                 {resultSheet.map((res, index) => (
                                     <TableRow className={res.correct ? 'correct' : 'incorrect'} key={index}>
+                                         <TableCell>
+                                            {index+1+")"}
+                                        </TableCell>
                                         <TableCell>
                                             {res.ques}
                                         </TableCell>
@@ -47,7 +51,7 @@ const ResultSheet = ({ resultSheet, score, resetQuiz }) => {
                                             {res.ans}
                                         </TableCell>
                                         <TableCell align="right">
-                                            {res.userAns}
+                                            {res.userAns === "" ? "-": userAns}
                                         </TableCell>
                                     </TableRow>
                                 ))}
