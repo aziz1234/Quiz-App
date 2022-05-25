@@ -51,7 +51,7 @@ const ResultSheet = ({ resultSheet, score, resetQuiz }) => {
                                             {res.ans}
                                         </TableCell>
                                         <TableCell align="right">
-                                            {res.userAns === "" ? "-": userAns}
+                                            {res.userAns === "" ? "-": res.userAns}
                                         </TableCell>
                                     </TableRow>
                                 ))}
@@ -59,7 +59,7 @@ const ResultSheet = ({ resultSheet, score, resetQuiz }) => {
                         </Table>
                     </TableContainer>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} className = "score">
                     Score: {`${score}/${resultSheet.length}`}
                 </Grid>
                 <Grid item xs={12}>
